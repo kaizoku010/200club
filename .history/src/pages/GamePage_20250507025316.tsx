@@ -19,8 +19,7 @@ import {
 import {
   playSound,
   toggleBackgroundMusic,
-  isMusicEnabled,
-  initBackgroundMusic
+  isMusicEnabled
 } from '@/services/soundService';
 
 const GamePage: React.FC = () => {
@@ -39,19 +38,8 @@ const GamePage: React.FC = () => {
 
     // Try to ensure background music is playing
     if (isMusicEnabled()) {
-      // Initialize background music if not already initialized
-      initBackgroundMusic();
-
-      // Play a silent sound to unlock audio context
-      const silentSound = new Audio();
-      silentSound.volume = 0.01;
-      silentSound.play().then(() => {
-        console.log('Audio context unlocked in GamePage');
-        // Start background music if it's enabled but not playing
-        toggleBackgroundMusic();
-      }).catch(error => {
-        console.error('Failed to unlock audio context in GamePage:', error);
-      });
+      toggleBackgroundMusic();
+      toggleBackgroundMusic();
     }
   }, []);
 
@@ -158,7 +146,7 @@ const GamePage: React.FC = () => {
 
       <footer className="bg-game-background border-t border-white/10 py-4">
         <div className="container mx-auto px-4 text-center text-white/60">
-          &copy; {new Date().getFullYear()} 200 Club by SembezaAfrica. All rights reserved.
+          &copy; {new Date().getFullYear()} 200 Club by SembezaAfrica. All rights reserlved.
         </div>
       </footer>
 
@@ -178,7 +166,7 @@ const GamePage: React.FC = () => {
       )}
 
       {/* Sound Controls */}
-      <SoundControls />
+      {/* <SoundControls /> */}
     </div>
   );
 };

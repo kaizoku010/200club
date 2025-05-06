@@ -72,10 +72,8 @@ const SoundControls: React.FC = () => {
   const handleStartAudio = () => {
     // Play a silent sound to unlock the audio context
     const audio = new Audio();
-    audio.volume = 0.01;
-
     audio.play().then(() => {
-      console.log('Audio context started successfully from SoundControls button');
+      console.log('Audio context started successfully');
       setAudioStarted(true);
 
       // Try to play a test sound
@@ -83,40 +81,10 @@ const SoundControls: React.FC = () => {
 
       // Try to start background music if it's enabled
       if (musicOn) {
-        // Make sure background music is initialized
-        initBackgroundMusic();
-
-        // Try to toggle background music
-        if (!toggleBackgroundMusic()) {
-          console.log('Failed to toggle background music, trying again...');
-          // Try again after a short delay
-          setTimeout(() => {
-            toggleBackgroundMusic();
-          }, 100);
-        }
+        toggleBackgroundMusic();
       }
     }).catch(error => {
       console.error('Failed to start audio context:', error);
-
-      // Try again with a different approach
-      try {
-        // Create and resume AudioContext directly
-        const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-        if (AudioContext) {
-          const audioContext = new AudioContext();
-          audioContext.resume().then(() => {
-            console.log('AudioContext resumed successfully');
-            setAudioStarted(true);
-
-            // Try to start background music
-            if (musicOn) {
-              toggleBackgroundMusic();
-            }
-          });
-        }
-      } catch (secondError) {
-        console.error('Failed second attempt to start audio:', secondError);
-      }
     });
   };
 

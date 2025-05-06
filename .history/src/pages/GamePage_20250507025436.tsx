@@ -19,8 +19,7 @@ import {
 import {
   playSound,
   toggleBackgroundMusic,
-  isMusicEnabled,
-  initBackgroundMusic
+  isMusicEnabled
 } from '@/services/soundService';
 
 const GamePage: React.FC = () => {
