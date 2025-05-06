@@ -1,0 +1,79 @@
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Volume2, VolumeX, Music, Music2 } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
+import {
+  toggleSoundEffects,
+  toggleBackgroundMusic,
+  setMusicVolume,
+  isSoundEnabled,
+  isMusicEnabled,
+  initBackgroundMusic
+} from '@/services/soundService';
+
+const SoundControls: React.FC = () => {
+  const [soundOn, setSoundOn] = useState(true);
+  const [musicOn, setMusicOn] = useState(true);
+  const [volume, setVolume] = useState(0.3);
+
+  // Initialize background music on component mount
+  useEffect(() => {
+    initBackgroundMusic();
+  }, []);
+
+  // Toggle sound effects
+  const handleToggleSound = () => {
+    const isEnabled = toggleSoundEffects();
+    setSoundOn(isEnabled);
+  };
+
+  // Toggle background music
+  const handleToggleMusic = () => {
+    const isEnabled = toggleBackgroundMusic();
+    setMusicOn(isEnabled);
+  };
+
+  // Handle volume change
+  const handleVolumeChange = (value: number[]) => {
+    const newVolume = value[0];
+    setVolume(newVolume);
+    setMusicVolume(newVolume);
+  };
+
+  return (
+    <div className="fixed bottom-4 right-4 z-50 bg-black/50 backdrop-blur-sm p-3 rounded-lg shadow-lg flex flex-col gap-2 animate-fadeIn"
+    >
+      <div className="flex items-center gap-2">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={handleToggleSound}
+          className="text-white hover:bg-white/20"
+        >
+          {soundOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={handleToggleMusic}
+          className="text-white hover:bg-white/20"
+        >
+          {musicOn ? <Music size={18} /> : <Music2 size={18} />}
+        </Button>
+      </div>
+
+      {musicOn && (
+        <div className="w-24 px-1">
+          <Slider
+            defaultValue={[volume]}
+            max={1}
+            step={0.01}
+            onValueChange={handleVolumeChange}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SoundControls;
