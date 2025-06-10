@@ -68,7 +68,7 @@ export const initBackgroundMusic = (): void => {
     }
   };
 
-  // Don't try to autoplay here - i'll do it explicitly from the landing page
+  // Don't try to autoplay here - wi'll do it explicitly from the landing page
   // after user interaction
 
   console.log('Background music initialized successfully');

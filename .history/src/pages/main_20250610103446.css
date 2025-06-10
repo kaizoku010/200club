@@ -6,14 +6,3 @@
 #hero-section{
     background: url('../imgs/bg.jpg') no-repeat center center fixed;
 }
-
-#nav{
-z-index: 1111111111;
-    background-color: rgba(255, 0, 0, 0);
-    position: fixed;
-    width: 100%;
-}
-
-#hero-title{
-    margin-top: 15rem;
-}

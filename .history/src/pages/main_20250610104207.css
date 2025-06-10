@@ -1,0 +1,12 @@
+/* #main-page{
+    background: url('/assets/images/sembeza-africa.jpg') no-repeat center center fixed;
+    background-size: cover;
+} */
+
+#hero-section{
+    background: url('../imgs/bg2.jpeg') no-repeat center center fixed;
+}
+
+#nav{
+    
+}

@@ -18,7 +18,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/game" element={<GamePage />} />
-          {/* Redirect main /index to the new game page for backward compatibility */}
+          {/* Redirect /index to the new game page for backward compatibility */}
           <Route path="/index" element={<Navigate to="/game" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

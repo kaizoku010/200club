@@ -33,7 +33,7 @@ const LandingPage: React.FC = () => {
 
       {/* Hero Section */}
       <section id='hero-section' className="flex flex-col items-center justify-center text-center py-20 px-4">
-        <h1 id='hero-title' className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-glow mb-6">Make an Impact. <span className="text-game-accent">Join 200 Club</span></h1>
+        <h1 id='' className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-glow mb-6">Make an Impact. <span className="text-game-accent">Join 200 Club</span></h1>
         <p className="text-xl md:text-2xl text-white/80 max-w-2xl mb-8">Support SembezaAfrica's mission to empower communities through education, healthcare, and sustainable development. Every number purchased changes a life.</p>
         <Link to="/game">
           <Button

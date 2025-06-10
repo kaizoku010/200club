@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import semLogo from '@/../public/sem_logo.png';
-import bgImg from '../imgs/bg.jpg';
+import bgImg from '@/imgs/bg.jpg';
 import './main.css';
 
 const LandingPage: React.FC = () => {
@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
       </div>
 
       {/* Navbar */}
-      <nav id='nav' className="flex items-center justify-between px-8 py-6 bg-transparent">
+      <nav className="flex items-center justify-between px-8 py-6 bg-transparent">
         <div className="flex items-center gap-3">
           <img src={semLogo} alt="SembezaAfrica Logo" className="h-12 w-12 rounded-full shadow-lg" />
           <span className="text-2xl font-bold text-white tracking-tight">SembezaAfrica</span>
@@ -32,8 +32,8 @@ const LandingPage: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id='hero-section' className="flex flex-col items-center justify-center text-center py-20 px-4">
-        <h1 id='hero-title' className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-glow mb-6">Make an Impact. <span className="text-game-accent">Join 200 Club</span></h1>
+      <section className="flex flex-col items-center justify-center text-center py-20 px-4">
+        <h1 className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-glow mb-6">Make an Impact. <span className="text-game-accent">Join 200 Club</span></h1>
         <p className="text-xl md:text-2xl text-white/80 max-w-2xl mb-8">Support SembezaAfrica's mission to empower communities through education, healthcare, and sustainable development. Every number purchased changes a life.</p>
         <Link to="/game">
           <Button

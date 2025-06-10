@@ -1,4 +1,7 @@
 
+// This is a mock service that would be replaced with a real backend service
+// In a real app, this would connect to a database to track available and purchased numbers
+
 // Local storage keys
 const PURCHASED_NUMBERS_KEY = 'purchasedNumbers';
 const USER_CART_KEY = 'userCart';
