@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    // Add other plugins conditionally if needed, e.g.:
     // ...(mode === 'development' ? [someDevPlugin()] : []),
   ],
   resolve: {
